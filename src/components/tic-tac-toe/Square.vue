@@ -9,21 +9,19 @@
 
 <script>
 
-    import {computed, toRefs} from "@vue/reactivity";
+    import {computed} from "@vue/reactivity";
 
     export default {
         name: "Square",
         props: ['value','logic'],
         setup(props) {
-            let {lineWon} = toRefs(props.logic.lineWon)
-            let highlight = computed(() => lineWon ? lineWon.includes(props.value) : false)
+            let highlight = computed(() => props.logic.game.lineWon ? props.logic.game.lineWon.includes(props.value) : false)
             const handleClick = (i) => {
                 props.logic.handleClick(i)
             }
 
 
             return {
-                lineWon,
                 highlight,
                 handleClick
             }

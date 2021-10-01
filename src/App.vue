@@ -2,17 +2,20 @@
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld />
   <TicTacToe />
+  <Parent />
 </template>
 
 <script>
 import HelloWorld from './components/count-down/HelloWorld.vue'
 import TicTacToe from "./components/tic-tac-toe/TicTacToe";
+import Parent from "./components/tic-tac-toe/Parent";
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    TicTacToe
+    TicTacToe,
+    Parent,
   }
 }
 </script>

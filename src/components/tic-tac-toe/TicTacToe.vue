@@ -1,18 +1,20 @@
 <template>
     <div class="game">
-        <div
-                class="board-row"
-                v-for="i of [0,3,6]"
-                :key="i"
-        >
-            <div v-for="j of [0,1,2]" :key="j">
-                <Square
-                        :value="i+j"
-                        :logic="logic"
-                />
+        <div class="game-board">
+            <p>{{status}}</p>
+            <div
+                    class="board-row"
+                    v-for="i of [0,3,6]"
+                    :key="i"
+            >
+                <span v-for="j of [0,1,2]" :key="j">
+                    <Square
+                            :value="i+j"
+                            :logic="logic"
+                    />
+                </span>
             </div>
         </div>
-        <div>{{status}}</div>
         <div class="game-info">
             <div v-for="(item,i) of game.history" :key="i">
                 <button @click="jumpTo(i)">
